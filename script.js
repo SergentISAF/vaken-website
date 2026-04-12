@@ -70,21 +70,34 @@
     // --- Email signup ---
     var form = document.getElementById('signup-form');
     var successMsg = document.getElementById('signup-success');
+    var SIGNUP_API = 'https://claude-code.tail330027.ts.net/api/signup';
 
     if (form) {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             var email = document.getElementById('email-input').value;
+            var submitBtn = form.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '...';
 
-            // Store locally for now — replace with real backend later
-            var signups = JSON.parse(localStorage.getItem('vaken-signups') || '[]');
-            signups.push({ email: email, date: new Date().toISOString() });
-            localStorage.setItem('vaken-signups', JSON.stringify(signups));
-
-            form.style.display = 'none';
-            if (successMsg) successMsg.classList.add('visible');
-
-            console.log('Signup:', email);
+            fetch(SIGNUP_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email })
+            })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                form.style.display = 'none';
+                if (successMsg) successMsg.classList.add('visible');
+            })
+            .catch(function () {
+                // Fallback: store locally if API is down
+                var signups = JSON.parse(localStorage.getItem('vaken-signups') || '[]');
+                signups.push({ email: email, date: new Date().toISOString() });
+                localStorage.setItem('vaken-signups', JSON.stringify(signups));
+                form.style.display = 'none';
+                if (successMsg) successMsg.classList.add('visible');
+            });
         });
     }
 

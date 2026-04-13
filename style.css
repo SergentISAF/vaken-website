@@ -187,25 +187,30 @@ body {
     height: 200px;
     border: 3px solid var(--sand);
     border-radius: 50%;
-    animation: breathe-try 8s ease-in-out infinite;
+    animation: breathe-try 8s linear infinite;
 }
 
+/* Sinus-bølge sampled med mange keyframes → én kontinuerlig bevægelse.
+   Linear timing mellem samples → approksimerer rent sinus.
+   3s indånding (0% → 37.5%), 5s udånding (37.5% → 100%). */
 @keyframes breathe-try {
-    0% {
-        transform: scale(0.5);
-        opacity: 0.3;
-        border-color: var(--steel);
-    }
-    37.5% { /* Peak ved 3s — enkelt keyframe giver blød overgang til udånding */
-        transform: scale(1);
-        opacity: 1;
-        border-color: var(--sand);
-    }
-    100% {
-        transform: scale(0.5);
-        opacity: 0.3;
-        border-color: var(--steel);
-    }
+    0%    { transform: scale(0.500); opacity: 0.30; border-color: var(--steel); }
+    4.7%  { transform: scale(0.519); opacity: 0.39; }
+    9.4%  { transform: scale(0.573); opacity: 0.48; }
+    14.1% { transform: scale(0.654); opacity: 0.57; }
+    18.8% { transform: scale(0.750); opacity: 0.65; }
+    23.4% { transform: scale(0.846); opacity: 0.74; }
+    28.1% { transform: scale(0.927); opacity: 0.83; }
+    32.8% { transform: scale(0.981); opacity: 0.92; }
+    37.5% { transform: scale(1.000); opacity: 1.00; border-color: var(--sand); }
+    45.3% { transform: scale(0.981); opacity: 0.92; }
+    53.1% { transform: scale(0.927); opacity: 0.83; }
+    60.9% { transform: scale(0.846); opacity: 0.74; }
+    68.8% { transform: scale(0.750); opacity: 0.65; }
+    76.6% { transform: scale(0.654); opacity: 0.57; }
+    84.4% { transform: scale(0.573); opacity: 0.48; }
+    92.2% { transform: scale(0.519); opacity: 0.39; }
+    100%  { transform: scale(0.500); opacity: 0.30; border-color: var(--steel); }
 }
 
 .breathe-text {

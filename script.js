@@ -3,22 +3,45 @@
 (function () {
     'use strict';
 
-    let currentLang = 'da';
+    var SUPPORTED_LANGS = ['da', 'no', 'sv', 'fi', 'en'];
+
+    // Detect initial language:
+    // 1. User's saved choice (localStorage) if valid
+    // 2. Browser language — nordic langs pick themselves
+    // 3. Default: English (primary marked er US-engelsk-talende)
+    function detectInitialLanguage() {
+        try {
+            var saved = localStorage.getItem('vaken-lang');
+            if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
+        } catch (e) { /* localStorage blocked — fortsæt med browser detection */ }
+
+        var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        if (browserLang.indexOf('da') === 0) return 'da';
+        if (browserLang.indexOf('nb') === 0 || browserLang.indexOf('nn') === 0 || browserLang.indexOf('no') === 0) return 'no';
+        if (browserLang.indexOf('sv') === 0) return 'sv';
+        if (browserLang.indexOf('fi') === 0) return 'fi';
+        return 'en';
+    }
+
+    var currentLang = detectInitialLanguage();
 
     // --- Language switching ---
     function switchLang(lang) {
+        if (SUPPORTED_LANGS.indexOf(lang) === -1) return;
         currentLang = lang;
         document.documentElement.lang = lang === 'no' ? 'nb' : lang;
 
+        try { localStorage.setItem('vaken-lang', lang); } catch (e) { /* ignore */ }
+
         // Update all translatable elements
         document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
-            const text = el.getAttribute('data-' + lang);
+            var text = el.getAttribute('data-' + lang);
             if (text) el.innerHTML = text;
         });
 
         // Update placeholders
         document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(function (el) {
-            const ph = el.getAttribute('data-' + lang + '-placeholder');
+            var ph = el.getAttribute('data-' + lang + '-placeholder');
             if (ph) el.placeholder = ph;
         });
 
@@ -30,6 +53,9 @@
         // Update phase label
         updatePhaseLabel();
     }
+
+    // Apply detected language immediately (overrides HTML defaults)
+    switchLang(currentLang);
 
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {

@@ -105,19 +105,15 @@ body {
 }
 
 @keyframes breathe-hero {
-    0%, 100% {
+    0% {
         transform: scale(0.7);
         opacity: 0.4;
         border-width: 3px;
     }
-    37.5% { /* 3s inhale of 8s cycle */
+    37.5% { /* Peak ved 3s — enkelt keyframe giver blød overgang til udånding */
         transform: scale(1);
         opacity: 0.9;
         border-width: 3px;
-    }
-    50% {
-        transform: scale(1);
-        opacity: 0.9;
     }
     100% {
         transform: scale(0.7);
@@ -200,12 +196,7 @@ body {
         opacity: 0.3;
         border-color: var(--steel);
     }
-    37.5% {
-        transform: scale(1);
-        opacity: 1;
-        border-color: var(--sand);
-    }
-    62.5% {
+    37.5% { /* Peak ved 3s — enkelt keyframe giver blød overgang til udånding */
         transform: scale(1);
         opacity: 1;
         border-color: var(--sand);

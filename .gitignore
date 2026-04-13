@@ -1,0 +1,7 @@
+# Backup-originals fra image optimization (lokale kun, behøves ikke i repo)
+images/original/
+
+# Python artefakter
+tools/__pycache__/
+tools/*.pyc
+tools/.venv/

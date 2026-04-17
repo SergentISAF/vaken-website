@@ -5,3 +5,10 @@ images/original/
 tools/__pycache__/
 tools/*.pyc
 tools/.venv/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example

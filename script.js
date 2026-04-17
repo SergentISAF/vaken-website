@@ -137,7 +137,7 @@
         });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.feature-card, .audience-item, .story blockquote, .story-body').forEach(function (el) {
+    document.querySelectorAll('.manifest-lead, .pledge-item, .feature-card, .audience-item, .story blockquote, .story-body').forEach(function (el) {
         el.classList.add('reveal');
         observer.observe(el);
     });

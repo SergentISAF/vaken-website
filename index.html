@@ -26,10 +26,9 @@
     <link rel="alternate" hreflang="fi" href="https://vaken.dk/?lang=fi">
     <link rel="alternate" hreflang="en" href="https://vaken.dk/?lang=en">
     <link rel="alternate" hreflang="x-default" href="https://vaken.dk/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts indlæses først efter cookie-samtykke (se consent.js). Fallback-font virker indtil da. -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consent.css">
 </head>
 <body>
 
@@ -338,11 +337,57 @@
             <div class="footer-links">
                 <a href="/privacy.html" data-da="Privatlivspolitik" data-no="Personvern" data-sv="Integritetspolicy" data-fi="Tietosuojakäytäntö" data-en="Privacy Policy">Privatlivspolitik</a>
                 <a href="/terms.html" data-da="Vilkår" data-no="Vilkår" data-sv="Villkor" data-fi="Ehdot" data-en="Terms">Vilkår</a>
+                <a href="#" data-cc-open-settings data-da="Cookie-indstillinger" data-no="Cookie-innstillinger" data-sv="Cookie-inställningar" data-fi="Evästeasetukset" data-en="Cookie settings">Cookie-indstillinger</a>
             </div>
             <p class="footer-copyright">&copy; 2026 Dan Kristoffer Holmstad. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        window.COOKIE_CONSENT_CONFIG = {
+            privacyUrl: '/privacy',
+            detectLang: function () {
+                try {
+                    var l = localStorage.getItem('vaken-lang');
+                    if (l) return l;
+                } catch (e) {}
+                var b = (navigator.language || 'en').toLowerCase();
+                if (b.indexOf('da') === 0) return 'da';
+                if (b.indexOf('nb') === 0 || b.indexOf('nn') === 0 || b.indexOf('no') === 0) return 'no';
+                if (b.indexOf('sv') === 0) return 'sv';
+                if (b.indexOf('fi') === 0) return 'fi';
+                return 'en';
+            },
+            services: {
+                'google-fonts': {
+                    label: {
+                        da: 'Google Fonts', no: 'Google Fonts', sv: 'Google Fonts',
+                        fi: 'Google Fonts', en: 'Google Fonts'
+                    },
+                    description: {
+                        da: 'Indlæser skrifttypen Inter fra Googles servere. Dette sender din IP-adresse til Google. Uden samtykke bruges en fallback-skrifttype.',
+                        no: 'Laster skriften Inter fra Googles servere. Dette sender IP-adressen din til Google. Uten samtykke brukes en fallback-skrift.',
+                        sv: 'Laddar typsnittet Inter från Googles servrar. Detta skickar din IP-adress till Google. Utan samtycke används ett fallback-typsnitt.',
+                        fi: 'Lataa Inter-kirjasimen Googlen palvelimilta. Tämä lähettää IP-osoitteesi Googlelle. Ilman suostumusta käytetään varakirjasinta.',
+                        en: 'Loads the Inter font from Google servers. This sends your IP address to Google. A fallback font is used without consent.'
+                    },
+                    onAccept: function () {
+                        var pc1 = document.createElement('link');
+                        pc1.rel = 'preconnect'; pc1.href = 'https://fonts.googleapis.com';
+                        document.head.appendChild(pc1);
+                        var pc2 = document.createElement('link');
+                        pc2.rel = 'preconnect'; pc2.href = 'https://fonts.gstatic.com'; pc2.crossOrigin = '';
+                        document.head.appendChild(pc2);
+                        var link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap';
+                        document.head.appendChild(link);
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="consent.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

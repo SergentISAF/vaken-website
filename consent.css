@@ -1,0 +1,307 @@
+/*!
+ * Cookie consent banner — styling
+ * Ligeværdig accept/afvis per Datatilsynets vejledning.
+ * Neutrale default-farver; overstyres af hvert site via CSS-variabler:
+ *   --cc-bg, --cc-surface, --cc-text, --cc-text-dim,
+ *   --cc-border, --cc-accent, --cc-accent-text, --cc-reject, --cc-reject-text
+ */
+
+:root {
+    --cc-bg: rgba(10, 12, 20, 0.95);
+    --cc-surface: #1a1f2e;
+    --cc-text: #f0ebe2;
+    --cc-text-dim: #a8b0c0;
+    --cc-border: rgba(255, 255, 255, 0.1);
+    --cc-accent: #8fa8c8;
+    --cc-accent-text: #0a0c14;
+    --cc-reject: #3a4258;
+    --cc-reject-text: #f0ebe2;
+    --cc-focus: #d4c9b8;
+}
+
+.cc-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+    background: var(--cc-bg);
+    color: var(--cc-text);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--cc-border);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.cc-banner.cc-visible {
+    transform: translateY(0);
+}
+.cc-banner-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+.cc-banner-title {
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--cc-text);
+}
+.cc-banner-body {
+    margin: 0 0 16px;
+    color: var(--cc-text-dim);
+    font-size: 14px;
+}
+.cc-banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.cc-banner-links {
+    margin-top: 12px;
+    font-size: 13px;
+}
+.cc-banner-links a {
+    color: var(--cc-text-dim);
+    text-decoration: underline;
+}
+
+/* Buttons — ligeværdig visuel vægt på accept og reject */
+.cc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    min-width: 120px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.05s;
+    line-height: 1.2;
+    text-align: center;
+}
+.cc-btn:focus-visible {
+    outline: 2px solid var(--cc-focus);
+    outline-offset: 2px;
+}
+.cc-btn:active { transform: translateY(1px); }
+
+.cc-btn-accept {
+    background: var(--cc-accent);
+    color: var(--cc-accent-text);
+}
+.cc-btn-reject {
+    background: var(--cc-reject);
+    color: var(--cc-reject-text);
+}
+.cc-btn-accept:hover, .cc-btn-reject:hover { opacity: 0.88; }
+
+.cc-btn-save {
+    background: var(--cc-accent);
+    color: var(--cc-accent-text);
+}
+.cc-btn-save:hover { opacity: 0.88; }
+
+.cc-btn-link {
+    background: transparent;
+    color: var(--cc-text);
+    border-color: var(--cc-border);
+    min-width: auto;
+    padding: 10px 16px;
+    font-weight: 500;
+}
+.cc-btn-link:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* Settings modal */
+.cc-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+.cc-modal.cc-visible { display: flex; }
+.cc-modal-dialog {
+    background: var(--cc-surface);
+    color: var(--cc-text);
+    border: 1px solid var(--cc-border);
+    border-radius: 10px;
+    max-width: 560px;
+    width: 100%;
+    padding: 24px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 1.5;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+.cc-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+.cc-modal-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+.cc-modal-close {
+    background: none;
+    border: none;
+    color: var(--cc-text-dim);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+}
+.cc-modal-close:hover { color: var(--cc-text); }
+.cc-modal-intro {
+    margin: 0 0 20px;
+    color: var(--cc-text-dim);
+    font-size: 14px;
+}
+
+.cc-cat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.cc-cat {
+    border: 1px solid var(--cc-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+}
+.cc-cat-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+.cc-cat-title {
+    font-weight: 600;
+    font-size: 15px;
+}
+.cc-cat-badge {
+    font-size: 12px;
+    color: var(--cc-text-dim);
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.cc-cat-desc {
+    margin: 0;
+    font-size: 13px;
+    color: var(--cc-text-dim);
+}
+
+/* Toggle switch */
+.cc-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+    flex-shrink: 0;
+}
+.cc-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.cc-switch-slider {
+    position: absolute;
+    inset: 0;
+    background: #3a4258;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.cc-switch-slider::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+.cc-switch input:checked + .cc-switch-slider {
+    background: var(--cc-accent);
+}
+.cc-switch input:checked + .cc-switch-slider::before {
+    transform: translateX(18px);
+}
+.cc-switch input:focus-visible + .cc-switch-slider {
+    outline: 2px solid var(--cc-focus);
+    outline-offset: 2px;
+}
+
+.cc-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-end;
+    padding-top: 12px;
+    border-top: 1px solid var(--cc-border);
+}
+.cc-modal-version {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--cc-text-dim);
+    text-align: right;
+    opacity: 0.6;
+}
+
+/* Placeholder for blokeret tredjeparts-widget (fx Stripe) */
+.cc-placeholder {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px;
+    border: 1px dashed var(--cc-border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--cc-text-dim);
+    font-size: 14px;
+    text-align: center;
+}
+.cc-placeholder-text { margin: 0; }
+.cc-placeholder .cc-btn { min-width: 140px; }
+
+/* Mobile */
+@media (max-width: 640px) {
+    .cc-banner-actions { flex-direction: column; align-items: stretch; }
+    .cc-btn { width: 100%; }
+    .cc-modal-dialog { padding: 20px; }
+    .cc-modal-actions { flex-direction: column-reverse; }
+    .cc-modal-actions .cc-btn { width: 100%; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .cc-banner { transition: none; }
+    .cc-switch-slider, .cc-switch-slider::before { transition: none; }
+}

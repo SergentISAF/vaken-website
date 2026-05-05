@@ -29,6 +29,74 @@
     <!-- Google Fonts indlæses først efter cookie-samtykke (se consent.js). Fallback-font virker indtil da. -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="consent.css">
+
+    <!-- JSON-LD structured data — hjælper Google med at vise rich-result-cards.
+         Schema.org-typer: WebSite + Organization (HolmstadIT) + Person (Dan)
+         + SoftwareApplication (Vaken-appen). Bundle'd i én @graph så crawleren
+         kan se relationerne (publisher, author osv.) i ét hop. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://vaken.dk/#website",
+          "url": "https://vaken.dk/",
+          "name": "Vaken",
+          "description": "Vejrtrækningsapp bygget af en veteran. En ring der trækker vejret med dig.",
+          "inLanguage": ["da", "no", "sv", "fi", "en"],
+          "publisher": { "@id": "https://vaken.dk/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://vaken.dk/#organization",
+          "name": "HolmstadIT",
+          "alternateName": "Vaken",
+          "url": "https://vaken.dk/",
+          "email": "support@vaken.dk",
+          "telephone": "+45 60147667",
+          "vatID": "DK94229190",
+          "founder": { "@id": "https://vaken.dk/#dan" },
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DK"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://vaken.dk/#dan",
+          "name": "Dan Kristoffer Holmstad",
+          "jobTitle": "Founder, Vaken",
+          "description": "Tidligere dansk soldat med tre udsendelser til Helmand-provinsen i Afghanistan. Bygger Vaken som det redskab han ønskede han havde haft, da han kom hjem.",
+          "nationality": "DK",
+          "birthPlace": { "@type": "Place", "name": "Norge" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://vaken.dk/#app",
+          "name": "Vaken",
+          "description": "Vejrtrækningsapp med ringen som central metafor. Mild rytme gratis, fem premium-rytmer + custom som lifetime engangskøb. Fungerer standalone på iPhone og Apple Watch. Live puls under sessionen via Apple Health, Bluetooth-pulsmåler eller Apple Watch.",
+          "operatingSystem": "iOS 26+, watchOS 11+",
+          "applicationCategory": "HealthApplication",
+          "applicationSubCategory": "Mindfulness",
+          "inLanguage": ["da", "no", "sv", "fi", "en"],
+          "offers": {
+            "@type": "Offer",
+            "price": "89",
+            "priceCurrency": "DKK",
+            "description": "Vaken Premium — lifetime engangskøb. Gratis-version uden reklamer."
+          },
+          "publisher": { "@id": "https://vaken.dk/#organization" },
+          "creator": { "@id": "https://vaken.dk/#dan" },
+          "screenshot": [
+            "https://vaken.dk/images/IMG_0046.PNG",
+            "https://vaken.dk/images/IMG_0042.PNG",
+            "https://vaken.dk/images/IMG_0047.PNG"
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -66,16 +134,6 @@
             <ul class="pledge" aria-label="Vaken-løftet">
                 <li class="pledge-item">
                     <span class="pledge-title"
-                          data-da="Ingen sporing" data-no="Ingen sporing" data-sv="Ingen spårning" data-fi="Ei seurantaa" data-en="No tracking">Ingen sporing</span>
-                    <span class="pledge-body"
-                          data-da="Din data forlader aldrig din telefon."
-                          data-no="Dataene dine forlater aldri telefonen din."
-                          data-sv="Din data lämnar aldrig din telefon."
-                          data-fi="Tietosi eivät koskaan poistu puhelimestasi."
-                          data-en="Your data never leaves your phone.">Din data forlader aldrig din telefon.</span>
-                </li>
-                <li class="pledge-item">
-                    <span class="pledge-title"
                           data-da="Ingen abonnement" data-no="Ingen abonnement" data-sv="Inget abonnemang" data-fi="Ei tilausta" data-en="No subscription">Ingen abonnement</span>
                     <span class="pledge-body"
                           data-da="Gratis at prøve. Premium er lifetime engangskøb."
@@ -83,6 +141,16 @@
                           data-sv="Gratis att prova. Premium är lifetime engångsköp."
                           data-fi="Ilmainen kokeilla. Premium on kertaosto eliniäksi."
                           data-en="Free to try. Premium is a lifetime one-time purchase.">Gratis at prøve. Premium er lifetime engangskøb.</span>
+                </li>
+                <li class="pledge-item">
+                    <span class="pledge-title"
+                          data-da="Ingen konto" data-no="Ingen konto" data-sv="Inget konto" data-fi="Ei tiliä" data-en="No account">Ingen konto</span>
+                    <span class="pledge-body"
+                          data-da="Ingen email, ingen login. Bare åbn og brug appen."
+                          data-no="Ingen e-post, ingen innlogging. Bare åpne og bruk appen."
+                          data-sv="Ingen e-post, ingen inloggning. Bara öppna och använd appen."
+                          data-fi="Ei sähköpostia, ei kirjautumista. Avaa vain ja käytä."
+                          data-en="No email, no login. Just open and use it.">Ingen email, ingen login. Bare åbn og brug appen.</span>
                 </li>
                 <li class="pledge-item">
                     <span class="pledge-title"
@@ -107,6 +175,76 @@
         <div class="rhythm-info">
             <span class="phase-label" id="phase-label" data-da-in="Ind" data-da-out="Ud" data-no-in="Inn" data-no-out="Ut" data-sv-in="In" data-sv-out="Ut" data-fi-in="Sisään" data-fi-out="Ulos" data-en-in="In" data-en-out="Out">Ind</span>
             <span class="timer" id="phase-timer">3</span>
+        </div>
+    </section>
+
+    <!-- Demo video — kort skærmoptagelse af en breathing-cyklus i appen.
+         autoplay+muted+loop+playsinline matcher den klassiske ambient-video-
+         pattern. Ingen controls — videoen er kort nok til at brugeren ikke
+         behøver pause-knap. preload="metadata" sparer båndbredde indtil
+         brugeren scroll'er ned til sektionen. -->
+    <section class="app-demo">
+        <div class="container">
+            <h2 data-da="Se det i bevægelse" data-no="Se det i bevegelse" data-sv="Se det i rörelse" data-fi="Katso liikkeessä" data-en="See it in motion">Se det i bevægelse</h2>
+            <video class="app-demo-video"
+                   src="videos/demo.mp4"
+                   poster="videos/demo-poster.jpg"
+                   muted
+                   loop
+                   autoplay
+                   playsinline
+                   preload="metadata"
+                   width="320"
+                   height="558"
+                   aria-label="Skærmoptagelse af Vaken-app: hovedskærmen, en vejrtrækningscyklus med ringen der vokser og krymper"></video>
+        </div>
+    </section>
+
+    <!-- App screenshots -->
+    <section class="app-screenshots">
+        <div class="container">
+            <h2 data-da="Sådan ser det ud" data-no="Slik ser det ut" data-sv="Så här ser det ut" data-fi="Tältä se näyttää" data-en="Here's how it looks">Sådan ser det ud</h2>
+            <div class="screenshots-grid">
+                <figure class="screenshot-card">
+                    <img src="images/IMG_0046.PNG" alt="Vaken hovedskærm — ringen og START-knap" loading="lazy" width="260" height="563">
+                    <figcaption class="screenshot-caption"
+                                data-da="Hovedskærm — én ring, ét tap"
+                                data-no="Hovedskjerm — én ring, ett trykk"
+                                data-sv="Huvudskärm — en ring, ett tryck"
+                                data-fi="Pääsivu — yksi rengas, yksi napautus"
+                                data-en="Home — one ring, one tap">
+                        Hovedskærm — én ring, ét tap
+                    </figcaption>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="images/IMG_0042.PNG" alt="Tilkobl pulsmåler-skærm — Apple Watch, Garmin, Oura, Whoop" loading="lazy" width="260" height="563">
+                    <figcaption class="screenshot-caption"
+                                data-da="Live puls under sessionen — gratis"
+                                data-no="Live puls under økten — gratis"
+                                data-sv="Live puls under sessionen — gratis"
+                                data-fi="Live syke istunnon aikana — ilmainen"
+                                data-en="Live heart rate during sessions — free">
+                        Live puls under sessionen — gratis
+                    </figcaption>
+                    <a href="/connect/" class="screenshot-link"
+                       data-da="Sådan tilkobler du dit ur →"
+                       data-no="Slik kobler du til uret ditt →"
+                       data-sv="Så här ansluter du klockan →"
+                       data-fi="Näin yhdistät kellosi →"
+                       data-en="How to connect your watch →">Sådan tilkobler du dit ur →</a>
+                </figure>
+                <figure class="screenshot-card">
+                    <img src="images/IMG_0047.PNG" alt="Indsigt-skærm — sessioner, rytme-fordeling, sidste 7 dage" loading="lazy" width="260" height="563">
+                    <figcaption class="screenshot-caption"
+                                data-da="Indsigt — kun hvis du beder om det"
+                                data-no="Innsikt — kun hvis du ber om det"
+                                data-sv="Insikt — bara om du ber om det"
+                                data-fi="Näkemys — vain jos pyydät sitä"
+                                data-en="Insight — only if you ask for it">
+                        Indsigt — kun hvis du beder om det
+                    </figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
@@ -190,13 +328,13 @@
                             <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3"/>
                         </svg>
                     </div>
-                    <h3 data-da="Tre rytmer" data-no="Tre rytmer" data-sv="Tre rytmer" data-fi="Kolme rytmiä" data-en="Three rhythms">Tre rytmer</h3>
-                    <p data-da="Mild (3-5), Medium (4-7), Dyb (5-8). Alle med længere udånding for at aktivere ro i nervesystemet."
-                       data-no="Mild (3-5), Medium (4-7), Dyp (5-8). Alle med lengre utpust for å aktivere ro i nervesystemet."
-                       data-sv="Mild (3-5), Medium (4-7), Djup (5-8). Alla med längre utandning för att aktivera lugn i nervsystemet."
-                       data-fi="Kevyt (3-5), Keskitaso (4-7), Syvä (5-8). Kaikissa pidempi uloshengitys hermoston rauhoittamiseksi."
-                       data-en="Mild (3-5), Medium (4-7), Deep (5-8). All with longer exhales to activate calm in your nervous system.">
-                        Mild (3-5), Medium (4-7), Dyb (5-8). Alle med længere udånding for at aktivere ro i nervesystemet.
+                    <h3 data-da="Seks rytmer" data-no="Seks rytmer" data-sv="Sex rytmer" data-fi="Kuusi rytmiä" data-en="Six rhythms">Seks rytmer</h3>
+                    <p data-da="Mild · 3·5 (gratis). Medium · 4·7, Dyb · 5·8, Søvn · 4·7·8, Box · 4·4·4·4 og custom — premium. Alle med længere udånding for at aktivere ro i nervesystemet."
+                       data-no="Mild · 3·5 (gratis). Medium · 4·7, Dyp · 5·8, Søvn · 4·7·8, Box · 4·4·4·4 og custom — premium. Alle med lengre utpust for å aktivere ro i nervesystemet."
+                       data-sv="Mild · 3·5 (gratis). Medium · 4·7, Djup · 5·8, Sömn · 4·7·8, Box · 4·4·4·4 och custom — premium. Alla med längre utandning för att aktivera lugn i nervsystemet."
+                       data-fi="Kevyt · 3·5 (ilmainen). Keskitaso · 4·7, Syvä · 5·8, Uni · 4·7·8, Box · 4·4·4·4 ja oma — premium. Kaikissa pidempi uloshengitys hermoston rauhoittamiseksi."
+                       data-en="Mild · 3·5 (free). Medium · 4·7, Deep · 5·8, Sleep · 4·7·8, Box · 4·4·4·4 and custom — premium. All with longer exhales to activate calm in your nervous system.">
+                        Mild · 3·5 (gratis). Medium · 4·7, Dyb · 5·8, Søvn · 4·7·8, Box · 4·4·4·4 og custom — premium. Alle med længere udånding for at aktivere ro i nervesystemet.
                     </p>
                 </div>
                 <div class="feature-card">
@@ -225,12 +363,12 @@
                         </svg>
                     </div>
                     <h3 data-da="Krisehåndtering" data-no="Krisehåndtering" data-sv="Krishantering" data-fi="Kriisinhallinta" data-en="Crisis mode">Krisehåndtering</h3>
-                    <p data-da="En diskret knap altid tilgængelig. Angst, panik, høj stress — 2 minutters guidet vejrtrækning med det samme."
-                       data-no="En diskret knapp alltid tilgjengelig. Angst, panikk, høyt stress — 2 minutters guidet pusteøvelse med en gang."
-                       data-sv="En diskret knapp alltid tillgänglig. Ångest, panik, hög stress — 2 minuters guidad andning direkt."
-                       data-fi="Huomaamaton painike aina saatavilla. Ahdistus, paniikki, kova stressi — 2 minuutin ohjattu hengitys välittömästi."
-                       data-en="A discreet button always available. Anxiety, panic, high stress — 2 minutes of guided breathing immediately.">
-                        En diskret knap altid tilgængelig. Angst, panik, høj stress — 2 minutters guidet vejrtrækning med det samme.
+                    <p data-da="En diskret knap altid tilgængelig. Klar til præsentation, angst eller høj stress — 2 minutters guidet vejrtrækning med det samme."
+                       data-no="En diskret knapp alltid tilgjengelig. Klar for presentasjon, angst eller høyt stress — 2 minutters guidet pusteøvelse med en gang."
+                       data-sv="En diskret knapp alltid tillgänglig. Redo för presentation, ångest eller hög stress — 2 minuters guidad andning direkt."
+                       data-fi="Huomaamaton painike aina saatavilla. Valmis esitykseen, ahdistus tai kova stressi — 2 minuutin ohjattu hengitys välittömästi."
+                       data-en="A discreet button always available. Ready for a presentation, anxiety, or high stress — 2 minutes of guided breathing immediately.">
+                        En diskret knap altid tilgængelig. Klar til præsentation, angst eller høj stress — 2 minutters guidet vejrtrækning med det samme.
                     </p>
                 </div>
                 <div class="feature-card">
@@ -242,12 +380,12 @@
                         </svg>
                     </div>
                     <h3 data-da="Søvnrutine" data-no="Søvnrutine" data-sv="Sömnrutin" data-fi="Unirutiini" data-en="Sleep routine">Søvnrutine</h3>
-                    <p data-da="4-7-8 vejrtrækning 20 minutter før sengetid. Baseret på forskning. Appen henter din sengetid automatisk."
-                       data-no="4-7-8 pusteøvelse 20 minutter før leggetid. Basert på forskning. Appen henter leggetiden din automatisk."
-                       data-sv="4-7-8 andning 20 minuter före läggdags. Baserat på forskning. Appen hämtar din sovtid automatiskt."
-                       data-fi="4-7-8 hengitys 20 minuuttia ennen nukkumaanmenoa. Tutkimukseen perustuva. Sovellus hakee nukkumaanmenoaikasi automaattisesti."
-                       data-en="4-7-8 breathing 20 minutes before bed. Based on research. The app gets your bedtime automatically.">
-                        4-7-8 vejrtrækning 20 minutter før sengetid. Baseret på forskning. Appen henter din sengetid automatisk.
+                    <p data-da="4-7-8 vejrtrækning 30 minutter før sengetid. Baseret på forskning. Appen henter din sengetid automatisk."
+                       data-no="4-7-8 pusteøvelse 30 minutter før leggetid. Basert på forskning. Appen henter leggetiden din automatisk."
+                       data-sv="4-7-8 andning 30 minuter före läggdags. Baserat på forskning. Appen hämtar din sovtid automatiskt."
+                       data-fi="4-7-8 hengitys 30 minuuttia ennen nukkumaanmenoa. Tutkimukseen perustuva. Sovellus hakee nukkumaanmenoaikasi automaattisesti."
+                       data-en="4-7-8 breathing 30 minutes before bed. Based on research. The app gets your bedtime automatically.">
+                        4-7-8 vejrtrækning 30 minutter før sengetid. Baseret på forskning. Appen henter din sengetid automatisk.
                     </p>
                 </div>
                 <div class="feature-card">
@@ -259,12 +397,12 @@
                         </svg>
                     </div>
                     <h3 data-da="Ingen abonnement" data-no="Ingen abonnement" data-sv="Inget abonnemang" data-fi="Ei tilausta" data-en="No subscription">Ingen abonnement</h3>
-                    <p data-da="Gratis at prøve. Premium er et lifetime engangskøb — betal én gang, eje alt. Ingen reklamer. Aldrig."
-                       data-no="Gratis å prøve. Premium er et lifetime engangskjøp — betal én gang, eie alt. Ingen reklamer. Aldri."
-                       data-sv="Gratis att prova. Premium är ett lifetime engångsköp — betala en gång, äg allt. Inga annonser. Aldrig."
-                       data-fi="Ilmainen kokeilla. Premium on kertaostos — maksa kerran, omista kaikki. Ei mainoksia. Koskaan."
-                       data-en="Free to try. Premium is a lifetime one-time purchase — pay once, own it. No ads. Ever.">
-                        Gratis at prøve. Premium er et lifetime engangskøb — betal én gang, eje alt. Ingen reklamer. Aldrig.
+                    <p data-da="Gratis at prøve — uden reklamer. Premium er et lifetime engangskøb — betal én gang, eje alt."
+                       data-no="Gratis å prøve — uten reklamer. Premium er et lifetime engangskjøp — betal én gang, eie alt."
+                       data-sv="Gratis att prova — utan annonser. Premium är ett lifetime engångsköp — betala en gång, äg allt."
+                       data-fi="Ilmainen kokeilla — ei mainoksia. Premium on kertaostos — maksa kerran, omista kaikki."
+                       data-en="Free to try — no ads. Premium is a lifetime one-time purchase — pay once, own it.">
+                        Gratis at prøve — uden reklamer. Premium er et lifetime engangskøb — betal én gang, eje alt.
                     </p>
                 </div>
             </div>
@@ -276,7 +414,7 @@
         <div class="container">
             <h2 data-da="Hvem er Vaken til?" data-no="Hvem er Vaken for?" data-sv="Vem är Vaken för?" data-fi="Kenelle Vaken on?" data-en="Who is Vaken for?">Hvem er Vaken til?</h2>
             <div class="audience-grid">
-                <div class="audience-item" data-da="Veteraner og førsterespondere" data-no="Veteraner og førsterespondere" data-sv="Veteraner och räddningstjänst" data-fi="Veteraanit ja ensivastehenkilöt" data-en="Veterans and first responders">Veteraner og førsterespondere</div>
+                <div class="audience-item" data-da="Soldater og førsterespondere" data-no="Soldater og førsterespondere" data-sv="Soldater och räddningstjänst" data-fi="Sotilaat ja ensivastehenkilöt" data-en="Soldiers and first responders">Soldater og førsterespondere</div>
                 <div class="audience-item" data-da="Mennesker med PTSD og angst" data-no="Mennesker med PTSD og angst" data-sv="Människor med PTSD och ångest" data-fi="PTSD:stä ja ahdistuksesta kärsivät" data-en="People with PTSD and anxiety">Mennesker med PTSD og angst</div>
                 <div class="audience-item" data-da="Stressramte og sygemeldte" data-no="Stressrammede og sykemeldte" data-sv="Stressdrabbade och sjukskrivna" data-fi="Stressistä kärsivät ja sairauslomalla olevat" data-en="People dealing with stress and burnout">Stressramte og sygemeldte</div>
                 <div class="audience-item" data-da="ADHD — nervesystem-regulering" data-no="ADHD — nervesystemregulering" data-sv="ADHD — nervsystemsreglering" data-fi="ADHD — hermoston säätely" data-en="ADHD — nervous system regulation">ADHD — nervesystem-regulering</div>

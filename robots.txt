@@ -1,0 +1,9 @@
+# vaken.dk — alle bots må indeksere alt
+User-agent: *
+Allow: /
+
+# AI scrapers er blokeret via Cloudflare's Block AI Bots-funktion på edge,
+# så vi behøver ikke gentage dem her. robots.txt kun for de "ærlige" bots
+# der respekterer den.
+
+Sitemap: https://vaken.dk/sitemap.xml

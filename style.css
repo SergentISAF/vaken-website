@@ -444,6 +444,134 @@ body {
     padding: 8px;
 }
 
+/* App demo video — kort skærmoptagelse af breathing-flowet i action.
+   Placeret før screenshots-sektionen så brugeren ser bevægelsen først,
+   så de tre stills som follow-up. Aspect-ratio reserverer plads inden
+   videoen er loaded så layout ikke hopper. */
+.app-demo {
+    padding: 60px 24px 40px;
+    background: var(--birch);
+}
+
+.app-demo h2 {
+    font-size: clamp(24px, 4.5vw, 32px);
+    font-weight: 300;
+    color: var(--fjord);
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+}
+
+.app-demo-video {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 720 / 1480;
+    margin: 0 auto;
+    border-radius: 28px;
+    box-shadow: 0 16px 48px rgba(44, 53, 80, 0.22);
+    background: var(--fjord);
+}
+
+/* App screenshots — viser hvordan appen ser ud i hånden, lige efter
+   try-section så brugeren har "trukket vejret med ringen" og nu ser
+   det live i appen. */
+.app-screenshots {
+    padding: 40px 24px 80px;
+    background: var(--birch);
+}
+
+.app-screenshots h2 {
+    font-size: clamp(24px, 4.5vw, 32px);
+    font-weight: 300;
+    color: var(--fjord);
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing: 1px;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.screenshot-card {
+    text-align: center;
+}
+
+.screenshot-card img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(44, 53, 80, 0.18);
+    display: block;
+    margin: 0 auto;
+}
+
+.screenshot-caption {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.screenshot-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--fjord);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(44, 53, 80, 0.3);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease;
+}
+
+.screenshot-link:hover {
+    border-bottom-color: var(--fjord);
+}
+
+/* Connect-overview liste på /connect/index.html */
+.connect-list {
+    list-style: none;
+    margin: 24px 0 40px;
+    padding: 0;
+}
+
+.connect-list li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(44, 53, 80, 0.08);
+}
+
+.connect-list li:last-child {
+    border-bottom: none;
+}
+
+.connect-list a {
+    display: block;
+    padding: 18px 4px;
+    color: var(--fjord);
+    text-decoration: none;
+    font-size: 17px;
+    transition: color 0.2s ease;
+}
+
+.connect-list a:hover {
+    color: var(--fjord-light);
+}
+
+.connect-hint {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 300;
+}
+
 .feature-icon {
     width: 48px;
     height: 48px;

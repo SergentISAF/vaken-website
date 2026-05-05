@@ -1,3 +1,6 @@
+# macOS metadata
+.DS_Store
+
 # Backup-originals fra image optimization (lokale kun, behøves ikke i repo)
 images/original/
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilkobl andet ur — Vaken</title>
+    <meta name="description" content="Tilkobl en pulsmåler eller smartwatch der ikke står i listen. Vejledning til Apple Health-bridge og BLE-pulsmålere.">
+    <link rel="canonical" href="https://vaken.dk/connect/other">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/consent.css">
+</head>
+<body>
+    <nav class="lang-nav" aria-label="Sprogvalg / Language">
+        <button class="lang-btn active" data-lang="da" aria-label="Dansk" lang="da">DA</button>
+        <button class="lang-btn" data-lang="no" aria-label="Norsk" lang="nb">NO</button>
+        <button class="lang-btn" data-lang="sv" aria-label="Svenska" lang="sv">SV</button>
+        <button class="lang-btn" data-lang="fi" aria-label="Suomi" lang="fi">FI</button>
+        <button class="lang-btn" data-lang="en" aria-label="English" lang="en">EN</button>
+    </nav>
+
+    <section class="legal-page">
+        <div class="container">
+            <a href="/" class="back-link">&larr; Vaken</a>
+
+            <h1 data-da="Tilkobl andet ur" data-no="Koble til annet ur" data-sv="Anslut annan klocka" data-fi="Yhdistä muu kello" data-en="Connect another device">Tilkobl andet ur</h1>
+            <p class="legal-date" data-da="Til pulsmålere der ikke står i listen" data-no="Til pulsmålere som ikke står i listen" data-sv="För pulsmätare som inte finns i listan" data-fi="Listalta puuttuville sykemittareille" data-en="For heart rate monitors not in the list">Til pulsmålere der ikke står i listen</p>
+
+            <p data-da="Vaken læser pulsdata fra Apple Health, så enhver pulsmåler eller smartwatch der kan skrive til Apple Health virker — også hvis brandet ikke står i Vakens picker. Sigt mod én af de tre veje nedenunder."
+               data-no="Vaken leser pulsdata fra Apple Health, så enhver pulsmåler eller smartwatch som kan skrive til Apple Health fungerer — også hvis merket ikke står i Vakens picker. Sikt mot én av de tre veiene under."
+               data-sv="Vaken läser pulsdata från Apple Health, så vilken pulsmätare eller smartwatch som helst som kan skriva till Apple Health fungerar — även om varumärket inte finns i Vakens picker. Sikta mot en av de tre vägarna nedan."
+               data-fi="Vaken lukee sykedataa Apple Healthista, joten mikä tahansa sykemittari tai älykello, joka pystyy kirjoittamaan Apple Healthiin, toimii — myös jos merkkiä ei ole Vakenin valitsimessa. Tähtää johonkin alla olevista kolmesta polusta."
+               data-en="Vaken reads heart rate data from Apple Health, so any heart rate monitor or smartwatch that can write to Apple Health works — even if the brand isn't in Vaken's picker. Aim for one of the three paths below.">
+                Vaken læser pulsdata fra Apple Health, så enhver pulsmåler eller smartwatch der kan skrive til Apple Health virker — også hvis brandet ikke står i Vakens picker. Sigt mod én af de tre veje nedenunder.
+            </p>
+
+            <h2 data-da="1. Direkte Apple Health-integration i ur-app&rsquo;ens indstillinger" data-no="1. Direkte Apple Health-integrasjon i ur-app-ens innstillinger" data-sv="1. Direkt Apple Health-integration i klock-appens inställningar" data-fi="1. Suora Apple Health -integraatio kello-sovelluksen asetuksissa" data-en="1. Direct Apple Health integration in the watch app's settings">1. Direkte Apple Health-integration i ur-app&rsquo;ens indstillinger</h2>
+            <p data-da="De fleste populære ure (Coros, Amazfit, Withings, Samsung Galaxy Watch m.fl.) har en Apple Health-toggle i deres iPhone-app under Indstillinger eller Tilsluttede tjenester. Aktivér den, tillad skrivning af pulsdata, og åbn så Vaken &rarr; Indstillinger &rarr; Pulsmåler &rarr; Tilkobl pulsmåler &rarr; vælg &ldquo;Andet&rdquo;."
+               data-no="De fleste populære ur (Coros, Amazfit, Withings, Samsung Galaxy Watch m.fl.) har en Apple Health-toggle i iPhone-appen sin under Innstillinger eller Tilkoblede tjenester. Aktiver den, tillat skriving av pulsdata, og åpne så Vaken &rarr; Innstillinger &rarr; Pulsmåler &rarr; Koble til pulsmåler &rarr; velg &ldquo;Annet&rdquo;."
+               data-sv="De flesta populära klockor (Coros, Amazfit, Withings, Samsung Galaxy Watch m.fl.) har en Apple Health-toggle i sin iPhone-app under Inställningar eller Anslutna tjänster. Aktivera den, tillåt skrivning av pulsdata, och öppna sedan Vaken &rarr; Inställningar &rarr; Pulsmätare &rarr; Anslut pulsmätare &rarr; välj &ldquo;Annat&rdquo;."
+               data-fi="Useimmissa suosituissa kelloissa (Coros, Amazfit, Withings, Samsung Galaxy Watch yms.) on Apple Health -valinta iPhone-sovelluksessa kohdassa Asetukset tai Yhdistetyt palvelut. Aktivoi se, salli sykedatan kirjoittaminen, ja avaa sitten Vaken &rarr; Asetukset &rarr; Sykemittari &rarr; Yhdistä sykemittari &rarr; valitse &ldquo;Muu&rdquo;."
+               data-en="Most popular watches (Coros, Amazfit, Withings, Samsung Galaxy Watch and others) have an Apple Health toggle in their iPhone app under Settings or Connected Services. Enable it, allow heart rate data to be written, then open Vaken &rarr; Settings &rarr; Heart rate monitor &rarr; Connect heart rate monitor &rarr; pick &ldquo;Other&rdquo;.">
+                De fleste populære ure (Coros, Amazfit, Withings, Samsung Galaxy Watch m.fl.) har en Apple Health-toggle i deres iPhone-app under Indstillinger eller Tilsluttede tjenester. Aktivér den, tillad skrivning af pulsdata, og åbn så Vaken &rarr; Indstillinger &rarr; Pulsmåler &rarr; Tilkobl pulsmåler &rarr; vælg &ldquo;Andet&rdquo;.
+            </p>
+
+            <h2 data-da="2. Bridge-app for ure uden direkte Apple Health-support" data-no="2. Bridge-app for ur uten direkte Apple Health-støtte" data-sv="2. Bridge-app för klockor utan direkt Apple Health-stöd" data-fi="2. Bridge-sovellus kelloille ilman suoraa Apple Health -tukea" data-en="2. Bridge app for watches without native Apple Health support">2. Bridge-app for ure uden direkte Apple Health-support</h2>
+            <p data-da="Hvis dit ur ikke kan skrive til Apple Health direkte, findes der bridge-apps som HealthFit (App Store) der henter dine træningsdata og videresender dem til Apple Health. Det er især nyttigt for Garmin-aktiviteter med detaljerede pulsdata. Følg bridge-app&rsquo;ens egen vejledning, og brug så &ldquo;Andet&rdquo; i Vakens picker."
+               data-no="Hvis uret ditt ikke kan skrive til Apple Health direkte, finnes det bridge-apper som HealthFit (App Store) som henter treningsdataene dine og videresender dem til Apple Health. Det er særlig nyttig for Garmin-aktiviteter med detaljerte pulsdata. Følg bridge-appens egen veiledning, og bruk så &ldquo;Annet&rdquo; i Vakens picker."
+               data-sv="Om din klocka inte kan skriva till Apple Health direkt finns det bridge-appar som HealthFit (App Store) som hämtar dina träningsdata och vidarebefordrar dem till Apple Health. Det är särskilt användbart för Garmin-aktiviteter med detaljerade pulsdata. Följ bridge-appens egen guide, och använd sedan &ldquo;Annat&rdquo; i Vakens picker."
+               data-fi="Jos kellosi ei pysty kirjoittamaan Apple Healthiin suoraan, on olemassa bridge-sovelluksia kuten HealthFit (App Store), jotka hakevat harjoitustiedot ja välittävät ne Apple Healthiin. Se on erityisen hyödyllinen Garmin-aktiviteeteille, joissa on yksityiskohtaisia sykedataa. Seuraa bridge-sovelluksen omaa ohjetta ja käytä sitten &ldquo;Muu&rdquo; Vakenin valitsimessa."
+               data-en="If your watch can't write to Apple Health directly, bridge apps like HealthFit (App Store) pull your workout data and forward it to Apple Health. Especially useful for Garmin activities with detailed heart rate data. Follow the bridge app's own guide, then pick &ldquo;Other&rdquo; in Vaken's picker.">
+                Hvis dit ur ikke kan skrive til Apple Health direkte, findes der bridge-apps som HealthFit (App Store) der henter dine træningsdata og videresender dem til Apple Health. Det er især nyttigt for Garmin-aktiviteter med detaljerede pulsdata. Følg bridge-app&rsquo;ens egen vejledning, og brug så &ldquo;Andet&rdquo; i Vakens picker.
+            </p>
+
+            <h2 data-da="3. BLE-pulsbælte (kommende)" data-no="3. BLE-pulsbelte (kommende)" data-sv="3. BLE-pulsbälte (kommande)" data-fi="3. BLE-sykevyö (tulossa)" data-en="3. BLE chest strap (coming soon)">3. BLE-pulsbælte (kommende)</h2>
+            <p data-da="En kommende Vaken-version vil kunne parre direkte med Bluetooth Low Energy-pulsbælter (Polar H9/H10, Wahoo Tickr m.fl.) — uden om Apple Health og uden om bridge-apps. Det giver ægte live puls under sessionen og fungerer også med Garmins &ldquo;Broadcast Heart Rate&rdquo;-mode. Funktionen er på roadmappen."
+               data-no="En fremtidig Vaken-versjon vil kunne pare direkte med Bluetooth Low Energy-pulsbelter (Polar H9/H10, Wahoo Tickr m.fl.) — uten om Apple Health og uten om bridge-apper. Det gir ekte live puls under økten og fungerer også med Garmins &ldquo;Broadcast Heart Rate&rdquo;-modus. Funksjonen er på roadmap-en."
+               data-sv="En kommande Vaken-version kommer att kunna para direkt med Bluetooth Low Energy-pulsbälten (Polar H9/H10, Wahoo Tickr m.fl.) — utan Apple Health och utan bridge-appar. Det ger riktig live puls under sessionen och fungerar också med Garmins &ldquo;Broadcast Heart Rate&rdquo;-läge. Funktionen finns på roadmappen."
+               data-fi="Tuleva Vaken-versio voi yhdistää suoraan Bluetooth Low Energy -sykevyöihin (Polar H9/H10, Wahoo Tickr yms.) — ilman Apple Healthia ja ilman bridge-sovelluksia. Se antaa aitoa live sykettä istunnon aikana ja toimii myös Garminin &ldquo;Broadcast Heart Rate&rdquo; -tilan kanssa. Ominaisuus on tiekartalla."
+               data-en="A future Vaken version will be able to pair directly with Bluetooth Low Energy chest straps (Polar H9/H10, Wahoo Tickr and others) — bypassing Apple Health and bridge apps. That gives true live heart rate during the session and also works with Garmin's &ldquo;Broadcast Heart Rate&rdquo; mode. The feature is on the roadmap.">
+                En kommende Vaken-version vil kunne parre direkte med Bluetooth Low Energy-pulsbælter (Polar H9/H10, Wahoo Tickr m.fl.) — uden om Apple Health og uden om bridge-apps. Det giver ægte live puls under sessionen og fungerer også med Garmins &ldquo;Broadcast Heart Rate&rdquo;-mode. Funktionen er på roadmappen.
+            </p>
+
+            <h2 data-da="Privatliv" data-no="Personvern" data-sv="Integritet" data-fi="Tietosuoja" data-en="Privacy">Privatliv</h2>
+            <p data-da="Pulsdata bor på din iPhone — Apple Health er local-only. Vaken læser kun mens du har appen åben og sender intet til vores servere. Du kan trække tilladelsen tilbage når som helst i Sundheds-appen."
+               data-no="Pulsdata ligger på iPhone-en din — Apple Health er local-only. Vaken leser kun mens du har appen åpen og sender ingenting til våre servere. Du kan trekke tillatelsen tilbake når som helst i Helse-appen."
+               data-sv="Pulsdata bor på din iPhone — Apple Health är local-only. Vaken läser bara medan du har appen öppen och skickar inget till våra servrar. Du kan dra tillbaka behörigheten när som helst i Hälsa-appen."
+               data-fi="Sykedata pysyy iPhonessasi — Apple Health on vain paikallinen. Vaken lukee vain kun sovellus on auki, eikä mitään lähetetä palvelimillemme. Voit perua luvan milloin tahansa Terveys-sovelluksessa."
+               data-en="Heart rate data lives on your iPhone — Apple Health is local-only. Vaken only reads while you have the app open and sends nothing to our servers. You can revoke permission at any time in the Health app.">
+                Pulsdata bor på din iPhone — Apple Health er local-only. Vaken læser kun mens du har appen åben og sender intet til vores servere. Du kan trække tilladelsen tilbage når som helst i Sundheds-appen.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-name">Vaken</p>
+            <div class="footer-links">
+                <a href="/" data-da="Forside" data-no="Forside" data-sv="Startsida" data-fi="Etusivu" data-en="Home">Forside</a>
+                <a href="/privacy.html" data-da="Privatlivspolitik" data-no="Personvern" data-sv="Integritetspolicy" data-fi="Tietosuoja" data-en="Privacy">Privatlivspolitik</a>
+                <a href="/terms.html" data-da="Vilkår" data-no="Vilkår" data-sv="Villkor" data-fi="Ehdot" data-en="Terms">Vilkår</a>
+                <a href="#" data-cc-open-settings data-da="Cookie-indstillinger" data-no="Cookie-innstillinger" data-sv="Cookie-inställningar" data-fi="Evästeasetukset" data-en="Cookie settings">Cookie-indstillinger</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Dan Kristoffer Holmstad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.COOKIE_CONSENT_CONFIG = {
+            privacyUrl: '/privacy',
+            services: {
+                'google-fonts': {
+                    label: { da: 'Google Fonts', en: 'Google Fonts' },
+                    description: {
+                        da: 'Indlæser skrifttypen Inter fra Googles servere. Dette sender din IP-adresse til Google.',
+                        en: 'Loads the Inter font from Google servers. This sends your IP address to Google.'
+                    },
+                    onAccept: function () {
+                        var link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap';
+                        document.head.appendChild(link);
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="/consent.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

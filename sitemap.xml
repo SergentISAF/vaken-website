@@ -15,7 +15,12 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Privacy + Terms -->
+  <!-- Support, Privacy + Terms -->
+  <url>
+    <loc>https://vaken.dk/support.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>https://vaken.dk/privacy.html</loc>
     <changefreq>monthly</changefreq>

@@ -32,7 +32,7 @@
     <priority>0.4</priority>
   </url>
 
-  <!-- Connect-oversigt + 8 brand-guides — sprog-skift via JS i samme URL -->
+  <!-- Connect-oversigt + 8 brand-guides, sprog-skift via JS i samme URL -->
   <url>
     <loc>https://vaken.dk/connect/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vaken.dk/connect/"/>

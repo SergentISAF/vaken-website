@@ -1,4 +1,4 @@
-/* Vaken Landing Page — vaken.dk */
+/* Vaken Landing Page, vaken.dk */
 
 :root {
     --fjord: #2C3550;
@@ -110,7 +110,7 @@ body {
         opacity: 0.4;
         border-width: 3px;
     }
-    37.5% { /* Peak ved 3s — enkelt keyframe giver blød overgang til udånding */
+    37.5% { /* Peak ved 3s, enkelt keyframe giver blød overgang til udånding */
         transform: scale(1);
         opacity: 0.9;
         border-width: 3px;
@@ -164,7 +164,7 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Manifest — at-a-glance who + how + principles, just under hero */
+/* Manifest, at-a-glance who + how + principles, just under hero */
 .manifest {
     background: var(--fjord);
     color: var(--sand);
@@ -444,7 +444,7 @@ body {
     padding: 8px;
 }
 
-/* App demo video — kort skærmoptagelse af breathing-flowet i action.
+/* App demo video, kort skærmoptagelse af breathing-flowet i action.
    Placeret før screenshots-sektionen så brugeren ser bevægelsen først,
    så de tre stills som follow-up. Aspect-ratio reserverer plads inden
    videoen er loaded så layout ikke hopper. */
@@ -474,7 +474,7 @@ body {
     background: var(--fjord);
 }
 
-/* App screenshots — viser hvordan appen ser ud i hånden, lige efter
+/* App screenshots, viser hvordan appen ser ud i hånden, lige efter
    try-section så brugeren har "trukket vejret med ringen" og nu ser
    det live i appen. */
 .app-screenshots {

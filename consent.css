@@ -1,5 +1,5 @@
 /*!
- * Cookie consent banner — styling
+ * Cookie consent banner, styling
  * Ligeværdig accept/afvis per Datatilsynets vejledning.
  * Neutrale default-farver; overstyres af hvert site via CSS-variabler:
  *   --cc-bg, --cc-surface, --cc-text, --cc-text-dim,
@@ -70,7 +70,7 @@
     text-decoration: underline;
 }
 
-/* Buttons — ligeværdig visuel vægt på accept og reject */
+/* Buttons, ligeværdig visuel vægt på accept og reject */
 .cc-btn {
     display: inline-flex;
     align-items: center;

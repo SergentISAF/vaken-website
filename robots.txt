@@ -1,4 +1,4 @@
-# vaken.dk — alle bots må indeksere alt
+# vaken.dk, alle bots må indeksere alt
 User-agent: *
 Allow: /
 

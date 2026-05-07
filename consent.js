@@ -1,5 +1,5 @@
 /*!
- * Cookie consent banner — GDPR/ePrivacy compliant
+ * Cookie consent banner, GDPR/ePrivacy compliant
  * Datatilsynets krav: ligeværdig accept/afvis, ingen pre-check, trækbart tilbage
  *
  * Site-specifik config sættes FØR scriptet indlæses:
@@ -29,7 +29,7 @@
     var I18N = {
         da: {
             bannerTitle: 'Vi respekterer dit privatliv',
-            bannerBody: 'Denne side bruger valgfrie tredjeparts-tjenester. Intet aktiveres uden dit samtykke. Nødvendige cookies (fx sprogvalg) bruges altid — se privatlivspolitikken for detaljer.',
+            bannerBody: 'Denne side bruger valgfrie tredjeparts-tjenester. Intet aktiveres uden dit samtykke. Nødvendige cookies (fx sprogvalg) bruges altid, se privatlivspolitikken for detaljer.',
             acceptAll: 'Accepter alle',
             rejectAll: 'Afvis alle',
             customize: 'Tilpas',
@@ -48,7 +48,7 @@
         },
         no: {
             bannerTitle: 'Vi respekterer personvernet ditt',
-            bannerBody: 'Denne siden bruker valgfrie tredjepartstjenester. Ingenting aktiveres uten ditt samtykke. Nødvendige cookies (f.eks. språkvalg) brukes alltid — se personvernerklæringen for detaljer.',
+            bannerBody: 'Denne siden bruker valgfrie tredjepartstjenester. Ingenting aktiveres uten ditt samtykke. Nødvendige cookies (f.eks. språkvalg) brukes alltid, se personvernerklæringen for detaljer.',
             acceptAll: 'Godta alle',
             rejectAll: 'Avvis alle',
             customize: 'Tilpass',
@@ -67,7 +67,7 @@
         },
         sv: {
             bannerTitle: 'Vi respekterar din integritet',
-            bannerBody: 'Denna sida använder valfria tredjepartstjänster. Inget aktiveras utan ditt samtycke. Nödvändiga cookies (t.ex. språkval) används alltid — se integritetspolicyn för detaljer.',
+            bannerBody: 'Denna sida använder valfria tredjepartstjänster. Inget aktiveras utan ditt samtycke. Nödvändiga cookies (t.ex. språkval) används alltid, se integritetspolicyn för detaljer.',
             acceptAll: 'Acceptera alla',
             rejectAll: 'Avvisa alla',
             customize: 'Anpassa',
@@ -86,7 +86,7 @@
         },
         fi: {
             bannerTitle: 'Kunnioitamme yksityisyyttäsi',
-            bannerBody: 'Tämä sivu käyttää valinnaisia kolmannen osapuolen palveluita. Mitään ei aktivoida ilman suostumustasi. Välttämättömiä evästeitä (esim. kielivalinta) käytetään aina — katso yksityisyydensuoja lisätiedoista.',
+            bannerBody: 'Tämä sivu käyttää valinnaisia kolmannen osapuolen palveluita. Mitään ei aktivoida ilman suostumustasi. Välttämättömiä evästeitä (esim. kielivalinta) käytetään aina, katso yksityisyydensuoja lisätiedoista.',
             acceptAll: 'Hyväksy kaikki',
             rejectAll: 'Hylkää kaikki',
             customize: 'Mukauta',
@@ -105,7 +105,7 @@
         },
         en: {
             bannerTitle: 'We respect your privacy',
-            bannerBody: 'This site uses optional third-party services. Nothing is enabled without your consent. Necessary cookies (e.g. language choice) are always used — see the privacy policy for details.',
+            bannerBody: 'This site uses optional third-party services. Nothing is enabled without your consent. Necessary cookies (e.g. language choice) are always used, see the privacy policy for details.',
             acceptAll: 'Accept all',
             rejectAll: 'Reject all',
             customize: 'Customize',
@@ -188,7 +188,7 @@
                     document.querySelectorAll('[data-consent-gated="' + key + '"]').forEach(function (el) {
                         el.style.display = '';
                     });
-                } catch (e) { /* swallow — don't break page */ }
+                } catch (e) { /* swallow, don't break page */ }
             }
         });
         try {

@@ -1,4 +1,4 @@
-// Vaken Landing Page — vaken.dk
+// Vaken Landing Page, vaken.dk
 
 (function () {
     'use strict';
@@ -7,13 +7,13 @@
 
     // Detect initial language:
     // 1. User's saved choice (localStorage) if valid
-    // 2. Browser language — nordic langs pick themselves
+    // 2. Browser language, nordic langs pick themselves
     // 3. Default: English (primary marked er US-engelsk-talende)
     function detectInitialLanguage() {
         try {
             var saved = localStorage.getItem('vaken-lang');
             if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
-        } catch (e) { /* localStorage blocked — fortsæt med browser detection */ }
+        } catch (e) { /* localStorage blocked, fortsæt med browser detection */ }
 
         var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
         if (browserLang.indexOf('da') === 0) return 'da';

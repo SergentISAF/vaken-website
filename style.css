@@ -771,6 +771,28 @@ footer {
     color: var(--sand);
 }
 
+.footer-social {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin: 16px 0 8px;
+}
+
+.footer-social a {
+    color: var(--steel);
+    display: inline-flex;
+    transition: color 0.2s;
+}
+
+.footer-social a:hover {
+    color: var(--sand);
+}
+
+.footer-social svg {
+    width: 22px;
+    height: 22px;
+}
+
 .footer-copyright {
     font-size: 13px;
     color: var(--steel);

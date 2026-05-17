@@ -637,6 +637,98 @@ body {
     box-shadow: 0 4px 16px rgba(44, 53, 80, 0.08);
 }
 
+/* Reading list (cross-link til offoverdrive.com blog) */
+.reading-list {
+    padding: 80px 24px 100px;
+    background: var(--white);
+}
+
+.reading-list h2 {
+    font-size: clamp(28px, 5vw, 36px);
+    font-weight: 300;
+    color: var(--fjord);
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.reading-list-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--fjord);
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.reading-card {
+    display: block;
+    max-width: 640px;
+    margin: 0 auto 24px;
+    background: var(--birch);
+    padding: 32px 36px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--fjord);
+    border: 1px solid rgba(44, 53, 80, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.reading-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(44, 53, 80, 0.1);
+}
+
+.reading-card-meta {
+    display: block;
+    font-size: 13px;
+    color: var(--fjord);
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.reading-card h3 {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--fjord);
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.reading-card p {
+    font-size: 15px;
+    color: var(--fjord);
+    opacity: 0.75;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.reading-card-cta {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--fjord);
+    font-weight: 500;
+}
+
+.reading-list-footer {
+    text-align: center;
+    margin: 24px 0 0;
+}
+
+.reading-list-footer a {
+    color: var(--fjord);
+    font-size: 14px;
+    opacity: 0.7;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.reading-list-footer a:hover {
+    opacity: 1;
+}
+
 /* Signup */
 .signup {
     padding: 100px 24px;

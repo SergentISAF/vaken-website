@@ -90,7 +90,7 @@ bh = bbox[3] - bbox[1]
 draw_centered(brand, cy - bh // 2 - 10, font_brand, BIRCH)
 
 # Tagline — under the ring
-draw_centered("Pust og fokus", cy + radius + 50, font_tag, SAND)
+draw_centered("En ring der trækker vejret med dig", cy + radius + 50, font_tag, SAND)
 
 # Credit — bottom
 draw_centered("Bygget af en veteran  ·  vaken.dk", H - 45, font_credit, (180, 195, 215))

@@ -112,4 +112,18 @@
     var style = document.createElement('style');
     style.textContent = '.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; } .reveal.visible { opacity: 1; transform: translateY(0); }';
     document.head.appendChild(style);
+    // --- App Store campaign link ---
+    // Tags the App Store buttons with a campaign name so installs can be
+    // attributed in App Store Connect. Nothing is stored in the browser:
+    // the source is read from the page URL and written to the links only.
+    (function tagAppStoreLinks() {
+        var params = new URLSearchParams(window.location.search);
+        var campaign = params.get('utm_campaign');
+        var source = params.get('utm_source');
+        var ct = 'web-vaken';
+        if (source === 'facebook' && campaign === 'vaken-okt26') ct = 'fb-vaken-okt26';
+        document.querySelectorAll('a[href^="https://apps.apple.com/app/id6762458404"]').forEach(function (a) {
+            a.href = 'https://apps.apple.com/app/apple-store/id6762458404?pt=128792757&ct=' + ct + '&mt=8';
+        });
+    })();
 })();

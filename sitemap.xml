@@ -17,17 +17,17 @@
 
   <!-- Support, Privacy + Terms -->
   <url>
-    <loc>https://vaken.dk/support.html</loc>
+    <loc>https://vaken.dk/support</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/privacy.html</loc>
+    <loc>https://vaken.dk/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/terms.html</loc>
+    <loc>https://vaken.dk/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -45,42 +45,42 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/apple-watch.html</loc>
+    <loc>https://vaken.dk/connect/apple-watch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/garmin.html</loc>
+    <loc>https://vaken.dk/connect/garmin</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/oura.html</loc>
+    <loc>https://vaken.dk/connect/oura</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/whoop.html</loc>
+    <loc>https://vaken.dk/connect/whoop</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/fitbit.html</loc>
+    <loc>https://vaken.dk/connect/fitbit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/polar.html</loc>
+    <loc>https://vaken.dk/connect/polar</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/suunto.html</loc>
+    <loc>https://vaken.dk/connect/suunto</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vaken.dk/connect/other.html</loc>
+    <loc>https://vaken.dk/connect/other</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

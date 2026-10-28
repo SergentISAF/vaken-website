@@ -6,10 +6,14 @@
     var SUPPORTED_LANGS = ['da', 'no', 'sv', 'fi', 'en'];
 
     // Detect initial language:
+    // 0. ?lang= in the URL
     // 1. User's saved choice (localStorage) if valid
     // 2. Browser language, nordic langs pick themselves
     // 3. Default: English (primary marked er US-engelsk-talende)
     function detectInitialLanguage() {
+        // An explicit ?lang= in the address wins (hreflang and shared links).
+        var fromUrl = new URLSearchParams(window.location.search).get('lang');
+        if (fromUrl && SUPPORTED_LANGS.indexOf(fromUrl) !== -1) return fromUrl;
         try {
             var saved = localStorage.getItem('vaken-lang');
             if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;
@@ -37,6 +41,14 @@
         document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
             var text = el.getAttribute('data-' + lang);
             if (text) el.innerHTML = text;
+        });
+
+        // Update image alt texts and the video label
+        document.querySelectorAll('[data-alt-' + lang + ']').forEach(function (el) {
+            el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+        });
+        document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
+            el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang));
         });
 
         // Update placeholders
@@ -93,25 +105,6 @@
 
     updatePhaseLabel();
 
-    // --- Smooth reveal on scroll ---
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.manifest-lead, .pledge-item, .feature-card, .audience-item, .story blockquote, .story-body').forEach(function (el) {
-        el.classList.add('reveal');
-        observer.observe(el);
-    });
-
-    // Add reveal CSS dynamically
-    var style = document.createElement('style');
-    style.textContent = '.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; } .reveal.visible { opacity: 1; transform: translateY(0); }';
-    document.head.appendChild(style);
     // --- App Store campaign link ---
     // Tags the App Store buttons with a campaign name so installs can be
     // attributed in App Store Connect. Nothing is stored in the browser:

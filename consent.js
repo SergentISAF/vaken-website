@@ -29,14 +29,14 @@
     var I18N = {
         da: {
             bannerTitle: 'Vi respekterer dit privatliv',
-            bannerBody: 'Denne side bruger valgfrie tredjeparts-tjenester. Intet aktiveres uden dit samtykke. Nødvendige cookies (fx sprogvalg) bruges altid, se privatlivspolitikken for detaljer.',
+            bannerBody: 'Denne side bruger valgfrie tredjepartstjenester. Intet aktiveres uden dit samtykke. Sprogvalg og dit samtykke gemmes i din browser (localStorage). Se privatlivspolitikken for detaljer.',
             acceptAll: 'Accepter alle',
             rejectAll: 'Afvis alle',
             customize: 'Tilpas',
             save: 'Gem valg',
             close: 'Luk',
             settingsTitle: 'Cookie-indstillinger',
-            settingsIntro: 'Her kan du vælge hvilke tredjeparts-tjenester du tillader. Dit valg gemmes i din browser og kan ændres når som helst.',
+            settingsIntro: 'Her kan du vælge hvilke tredjepartstjenester du tillader. Dit valg gemmes i din browser og kan ændres når som helst.',
             necessaryLabel: 'Nødvendige',
             necessaryDesc: 'Kræves for at siden fungerer (fx sprogvalg og samtykkelagring). Kan ikke fravælges.',
             alwaysOn: 'Altid aktiv',
@@ -48,7 +48,7 @@
         },
         no: {
             bannerTitle: 'Vi respekterer personvernet ditt',
-            bannerBody: 'Denne siden bruker valgfrie tredjepartstjenester. Ingenting aktiveres uten ditt samtykke. Nødvendige cookies (f.eks. språkvalg) brukes alltid, se personvernerklæringen for detaljer.',
+            bannerBody: 'Denne siden bruker valgfrie tredjepartstjenester. Ingenting aktiveres uten ditt samtykke. Språkvalg og samtykket ditt lagres i nettleseren (localStorage). Se personvernerklæringen for detaljer.',
             acceptAll: 'Godta alle',
             rejectAll: 'Avvis alle',
             customize: 'Tilpass',
@@ -67,7 +67,7 @@
         },
         sv: {
             bannerTitle: 'Vi respekterar din integritet',
-            bannerBody: 'Denna sida använder valfria tredjepartstjänster. Inget aktiveras utan ditt samtycke. Nödvändiga cookies (t.ex. språkval) används alltid, se integritetspolicyn för detaljer.',
+            bannerBody: 'Denna sida använder valfria tredjepartstjänster. Inget aktiveras utan ditt samtycke. Språkval och ditt samtycke sparas i webbläsaren (localStorage). Se integritetspolicyn för detaljer.',
             acceptAll: 'Acceptera alla',
             rejectAll: 'Avvisa alla',
             customize: 'Anpassa',
@@ -86,7 +86,7 @@
         },
         fi: {
             bannerTitle: 'Kunnioitamme yksityisyyttäsi',
-            bannerBody: 'Tämä sivu käyttää valinnaisia kolmannen osapuolen palveluita. Mitään ei aktivoida ilman suostumustasi. Välttämättömiä evästeitä (esim. kielivalinta) käytetään aina, katso yksityisyydensuoja lisätiedoista.',
+            bannerBody: 'Tämä sivu käyttää valinnaisia kolmannen osapuolen palveluita. Mitään ei aktivoida ilman suostumustasi. Kielivalinta ja suostumuksesi tallennetaan selaimeen (localStorage). Lisätietoja tietosuojakäytännössä.',
             acceptAll: 'Hyväksy kaikki',
             rejectAll: 'Hylkää kaikki',
             customize: 'Mukauta',
@@ -97,7 +97,7 @@
             necessaryLabel: 'Välttämättömät',
             necessaryDesc: 'Vaaditaan sivun toimintaan (esim. kielivalinta ja suostumuksen tallennus). Ei voi poistaa käytöstä.',
             alwaysOn: 'Aina käytössä',
-            privacyLink: 'Yksityisyydensuoja',
+            privacyLink: 'Tietosuojakäytäntö',
             settingsLink: 'Evästeasetukset',
             placeholderText: 'Tämä toiminto vaatii suostumuksesi.',
             placeholderButton: 'Ota käyttöön',
@@ -105,7 +105,7 @@
         },
         en: {
             bannerTitle: 'We respect your privacy',
-            bannerBody: 'This site uses optional third-party services. Nothing is enabled without your consent. Necessary cookies (e.g. language choice) are always used, see the privacy policy for details.',
+            bannerBody: 'This site uses optional third-party services. Nothing is enabled without your consent. Your language choice and your consent are stored in your browser (localStorage). See the privacy policy for details.',
             acceptAll: 'Accept all',
             rejectAll: 'Reject all',
             customize: 'Customize',
@@ -125,6 +125,8 @@
     };
 
     function defaultDetectLang() {
+        var q = /[?&]lang=(da|no|sv|fi|en)(&|$)/.exec(window.location.search);
+        if (q) return q[1];
         try {
             var stored = localStorage.getItem('vaken-lang') ||
                          localStorage.getItem('holmstadgroup_lang') ||

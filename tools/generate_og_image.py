@@ -57,22 +57,27 @@ def load_font(size, weight="regular"):
     candidates = {
         "regular": [
             "C:/Windows/Fonts/segoeui.ttf",
+            "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/Library/Fonts/Arial.ttf",
             "C:/Windows/Fonts/arial.ttf",
         ],
         "light": [
             "C:/Windows/Fonts/segoeuil.ttf",
+            "/System/Library/Fonts/Supplemental/Arial.ttf",
+            "/Library/Fonts/Arial.ttf",
             "C:/Windows/Fonts/arial.ttf",
         ],
         "semibold": [
             "C:/Windows/Fonts/seguisb.ttf",
+            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+            "/Library/Fonts/Arial Bold.ttf",
             "C:/Windows/Fonts/arialbd.ttf",
-            "C:/Windows/Fonts/arial.ttf",
         ],
     }
     for path in candidates.get(weight, candidates["regular"]):
         if Path(path).exists():
             return ImageFont.truetype(path, size)
-    return ImageFont.load_default()
+    raise SystemExit("No suitable font found for weight '%s'. Install Segoe UI or Arial." % weight)
 
 font_brand = load_font(88, "semibold")
 font_tag = load_font(42, "light")
@@ -90,7 +95,7 @@ bh = bbox[3] - bbox[1]
 draw_centered(brand, cy - bh // 2 - 10, font_brand, BIRCH)
 
 # Tagline — under the ring
-draw_centered("Pust og fokus", cy + radius + 50, font_tag, SAND)
+draw_centered("En ring der trækker vejret med dig", cy + radius + 50, font_tag, SAND)
 
 # Credit — bottom
 draw_centered("Bygget af en veteran  ·  vaken.dk", H - 45, font_credit, (180, 195, 215))

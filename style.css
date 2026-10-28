@@ -34,7 +34,8 @@ body {
 
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-:focus-visible { outline: 3px solid var(--steel); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 3px solid var(--fjord); outline-offset: 3px; border-radius: 6px; }
+.try-section :focus-visible, .signup .container :focus-visible, .hero-panel :focus-visible { outline-color: var(--sand); }
 
 .container {
     max-width: 1200px;
@@ -44,7 +45,7 @@ a { color: inherit; }
 
 /* ---------- Sprogvalg (fast pille i toppen) ---------- */
 .lang-nav {
-    position: fixed;
+    position: absolute;
     top: 18px;
     left: 50%;
     transform: translateX(-50%);
@@ -377,10 +378,6 @@ a { color: inherit; }
 .feature-card { background: var(--card); border: 1px solid var(--line); border-radius: 26px; padding: 34px 30px 36px; }
 .feature-card:nth-child(3n+2) { background: var(--tint-blue); border-color: transparent; }
 .feature-card:nth-child(3n) { background: var(--tint-sand); border-color: transparent; }
-.feature-card:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: 44px 1fr; column-gap: 24px; align-items: start; }
-.feature-card:last-child .feature-icon { grid-row: 1 / span 2; margin-bottom: 0; }
-.feature-card:last-child h3 { margin-bottom: 4px; }
-
 .feature-icon { width: 44px; height: 44px; color: var(--fjord); margin-bottom: 22px; }
 .feature-icon svg { width: 100%; height: 100%; }
 .feature-card h3 { font-size: 22px; font-weight: 500; letter-spacing: -0.01em; color: var(--fjord-dark); margin-bottom: 10px; }
@@ -460,16 +457,21 @@ footer { margin-top: 80px; padding: 56px 24px 48px; text-align: center; border-t
     .signup .container { margin: 0 16px; padding: 56px 24px; border-radius: 28px; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 760px) {
     .lang-nav { top: 12px; left: auto; right: 12px; transform: none; }
     .lang-btn { padding: 7px 10px; font-size: 12px; }
     .site-header { padding-top: 20px; padding-bottom: 8px; }
     .site-header .cta-btn { display: none; }
+}
+
+@media (max-width: 380px) {
+    .site-header { padding-top: 64px; }
+}
+
+@media (max-width: 600px) {
     .subtitle { font-size: 18px; }
     .feature-grid, .audience-grid { grid-template-columns: 1fr; }
-    .feature-card:last-child { display: block; }
-    .feature-card:last-child .feature-icon { margin-bottom: 22px; }
-    .audience-item { border-radius: 26px; }
+            .audience-item { border-radius: 26px; }
     .legal-page { padding-top: 84px; }
     .footer-links { gap: 8px 18px; }
 }

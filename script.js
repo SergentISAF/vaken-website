@@ -6,10 +6,14 @@
     var SUPPORTED_LANGS = ['da', 'no', 'sv', 'fi', 'en'];
 
     // Detect initial language:
+    // 0. ?lang= in the URL
     // 1. User's saved choice (localStorage) if valid
     // 2. Browser language, nordic langs pick themselves
     // 3. Default: English (primary marked er US-engelsk-talende)
     function detectInitialLanguage() {
+        // An explicit ?lang= in the address wins (hreflang and shared links).
+        var fromUrl = new URLSearchParams(window.location.search).get('lang');
+        if (fromUrl && SUPPORTED_LANGS.indexOf(fromUrl) !== -1) return fromUrl;
         try {
             var saved = localStorage.getItem('vaken-lang');
             if (saved && SUPPORTED_LANGS.indexOf(saved) !== -1) return saved;

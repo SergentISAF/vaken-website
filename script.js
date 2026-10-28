@@ -93,25 +93,6 @@
 
     updatePhaseLabel();
 
-    // --- Smooth reveal on scroll ---
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.manifest-lead, .pledge-item, .feature-card, .audience-item, .story blockquote, .story-body').forEach(function (el) {
-        el.classList.add('reveal');
-        observer.observe(el);
-    });
-
-    // Add reveal CSS dynamically
-    var style = document.createElement('style');
-    style.textContent = '.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; } .reveal.visible { opacity: 1; transform: translateY(0); }';
-    document.head.appendChild(style);
     // --- App Store campaign link ---
     // Tags the App Store buttons with a campaign name so installs can be
     // attributed in App Store Connect. Nothing is stored in the browser:

@@ -109,15 +109,26 @@
         <button class="lang-btn" data-lang="en" aria-label="English" lang="en">EN</button>
     </nav>
 
+    <!-- Topbar -->
+    <header class="site-header">
+        <a href="/" class="logo" aria-label="Vaken"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M 124.85 7.28 A 96 96 0 1 1 75.15 7.28" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round"/></svg>Vaken</a>
+        <a href="https://apps.apple.com/app/id6762458404" class="cta-btn small" data-da="Hent på App Store" data-no="Last ned fra App Store" data-sv="Ladda ner från App Store" data-fi="Lataa App Storesta" data-en="Download on the App Store">Hent på App Store</a>
+    </header>
+
     <!-- Hero -->
     <section class="hero">
-        <div class="ring-container">
-            <div class="ring" aria-hidden="true"></div>
+        <div>
+            <h1 data-da="En ring der trækker vejret med dig." data-no="En ring som puster med deg." data-sv="En ring som andas med dig." data-fi="Rengas, joka hengittää kanssasi." data-en="A ring that breathes with you.">En ring der trækker vejret med dig.</h1>
+            <p class="subtitle" data-da="Vaken er ude nu på App Store." data-no="Vaken er ute nå på App Store." data-sv="Vaken är ute nu på App Store." data-fi="Vaken on nyt saatavilla App Storessa." data-en="Vaken is out now on the App Store.">Vaken er ude nu på App Store.</p>
+            <div class="hero-actions">
+                <a href="https://apps.apple.com/app/id6762458404" class="cta-btn" data-da="Hent på App Store" data-no="Last ned fra App Store" data-sv="Ladda ner från App Store" data-fi="Lataa App Storesta" data-en="Download on the App Store">Hent på App Store</a>
+                <a href="#demo" class="cta-btn ghost" data-da="Se det i bevægelse" data-no="Se det i bevegelse" data-sv="Se det i rörelse" data-fi="Katso liikkeessä" data-en="See it in motion">Se det i bevægelse</a>
+            </div>
         </div>
-        <h1>Vaken</h1>
-        <p class="tagline" data-da="En ring der trækker vejret med dig." data-no="En ring som puster med deg." data-sv="En ring som andas med dig." data-fi="Rengas, joka hengittää kanssasi." data-en="A ring that breathes with you.">En ring der trækker vejret med dig.</p>
-        <p class="subtitle" data-da="Vaken er ude nu på App Store." data-no="Vaken er ute nå på App Store." data-sv="Vaken är ute nu på App Store." data-fi="Vaken on nyt saatavilla App Storessa." data-en="Vaken is out now on the App Store.">Vaken er ude nu på App Store.</p>
-        <a href="https://apps.apple.com/app/id6762458404" class="cta-btn" data-da="Hent på App Store" data-no="Last ned fra App Store" data-sv="Ladda ner från App Store" data-fi="Lataa App Storesta" data-en="Download on the App Store">Hent på App Store</a>
+        <div class="hero-panel" aria-hidden="true">
+            <div class="hero-ring"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M 124.85 7.28 A 96 96 0 1 1 75.15 7.28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+            <div class="hero-phone"><img src="images/IMG_0046.PNG" alt="" width="621" height="1344"></div>
+        </div>
     </section>
 
     <!-- Manifest: how simple + who it's for + principles -->
@@ -183,7 +194,7 @@
          pattern. Ingen controls, videoen er kort nok til at brugeren ikke
          behøver pause-knap. preload="metadata" sparer båndbredde indtil
          brugeren scroll'er ned til sektionen. -->
-    <section class="app-demo">
+    <section class="app-demo" id="demo">
         <div class="container">
             <h2 data-da="Se det i bevægelse" data-no="Se det i bevegelse" data-sv="Se det i rörelse" data-fi="Katso liikkeessä" data-en="See it in motion">Se det i bevægelse</h2>
             <video class="app-demo-video"

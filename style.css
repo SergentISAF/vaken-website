@@ -35,7 +35,7 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--fjord); outline-offset: 3px; border-radius: 6px; }
-.try-section :focus-visible, .signup .container :focus-visible, .hero-panel :focus-visible { outline-color: var(--sand); }
+.try-section :focus-visible, .signup .container :focus-visible, .hero-panel :focus-visible, .cc-banner :focus-visible, .cc-modal :focus-visible { outline-color: var(--sand); }
 
 .container {
     max-width: 1200px;
@@ -457,7 +457,7 @@ footer { margin-top: 80px; padding: 56px 24px 48px; text-align: center; border-t
     .signup .container { margin: 0 16px; padding: 56px 24px; border-radius: 28px; }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
     .lang-nav { top: 12px; left: auto; right: 12px; transform: none; }
     .lang-btn { padding: 7px 10px; font-size: 12px; }
     .site-header { padding-top: 20px; padding-bottom: 8px; }

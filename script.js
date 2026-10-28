@@ -43,6 +43,14 @@
             if (text) el.innerHTML = text;
         });
 
+        // Update image alt texts and the video label
+        document.querySelectorAll('[data-alt-' + lang + ']').forEach(function (el) {
+            el.setAttribute('alt', el.getAttribute('data-alt-' + lang));
+        });
+        document.querySelectorAll('[data-aria-' + lang + ']').forEach(function (el) {
+            el.setAttribute('aria-label', el.getAttribute('data-aria-' + lang));
+        });
+
         // Update placeholders
         document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(function (el) {
             var ph = el.getAttribute('data-' + lang + '-placeholder');
